@@ -44,7 +44,7 @@ public class EtudiantRessource {
     @Produces(MediaType.TEXT_PLAIN)
     public Response update(@PathParam("identifiant") String identifiant,Etudiant e){
         if(eb.getEtudiantByIdentifiant(identifiant)!=null){
-            eb.updateEtudiant(String.valueOf(identifiant), e);
+            eb.updateEtudiant(identifiant, e);
             return Response.status(Response.Status.OK).entity("Modifier avec succe").build();
         }
         return Response.status(Response.Status.NOT_FOUND).entity("Erreur").build();
